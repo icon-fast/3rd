@@ -539,7 +539,7 @@ function Fees() {
 }
 
 const DOCS = [
-  { name: "Flyer / Poster", status: "Available", ready:true, link:"https://drive.google.com/file/d/1VkM8gLffkaDBWUhr6-Aa5zXw8CIoc9YK/view?usp=sharing" },
+  { name: "Flyer / Poster", status: "Available", ready:true, link:"https://drive.google.com/file/d/1ZtXnOwQlfkLcWS0Wot_nB1n_xo2KoD0y/view?usp=sharing" },
   { name: "Abstract Template (.docx)", status: "Coming soon", ready:true, link: "https://docs.google.com/document/d/1GJOjXWxOyeH9XKOyGoGHamw5mgjSb6P1/edit?usp=sharing" },
   { name: "Full Paper Template (including Author Guidelines)", status: "Coming soon", ready:true, link:"https://docs.google.com/document/d/1f_VkJUINggHj_xFHxG5LBNqOTwdE7-Eu/edit?usp=sharing" },
   { name: "Submission Form", status: "Coming soon", ready:false },
@@ -602,11 +602,13 @@ const SCIENTIFIC_COMMITTEE = [
 const KEYNOTE_SPEAKERS = [
   {
     name: "Prof. Dr. Ahmed Osumanu Haruna",
-    role: "Soil Science — Head of Postgraduate Programme, Faculty of Agriculture, Universiti Islam Sultan Sharif Ali (UNISSA), Brunei Darussalam"
+    role: "Soil Science — Head of Postgraduate Programme, Faculty of Agriculture, Universiti Islam Sultan Sharif Ali (UNISSA), Brunei Darussalam",
+    photo: "assets/ahmed.jpeg"
   },
   {
     name: "Assoc. Prof. Dr. Pham Tien Thong",
-    role: "National Chung Hsing University (NCHU), Taiwan"
+    role: "National Chung Hsing University (NCHU), Taiwan",
+    photo: "assets/tien.jpg"
   },
 ];
 
@@ -651,12 +653,15 @@ function Committee() {
 
         <div className="committee-block">
           <span className="committee-subhead">B · Keynote Speakers</span>
-          <ul className="plain-list">
+          <ul className="people-grid">
             {KEYNOTE_SPEAKERS.map(p => (
-              <li key={p.name}>
-                <span className="p-name">{p.name}</span>
-                <span className="p-role">{p.role}</span>
-              </li>
+              <div className="person-card" key={p.name}>
+                <img className="person-photo" src={p.photo} alt={p.name} />
+                <div className="person-body">
+                  <div className="person-name">{p.name}</div>
+                  <div className="person-role">{p.role}</div>
+                </div>
+              </div>
             ))}
           </ul>
         </div>
