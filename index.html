@@ -542,7 +542,7 @@ const DOCS = [
   { name: "Flyer / Poster", status: "Available", ready:true, link:"https://drive.google.com/drive/folders/1YKIhcNE30laRcX6H4U6qFA5_k1ULdblS?usp=sharing" },
   { name: "Abstract Template (.docx)", status: "Available", ready:true, link: "https://docs.google.com/document/d/1GJOjXWxOyeH9XKOyGoGHamw5mgjSb6P1/edit?usp=sharing" },
   { name: "Full Paper Template (including Author Guidelines)", status: "Available", ready:true, link:"https://docs.google.com/document/d/1f_VkJUINggHj_xFHxG5LBNqOTwdE7-Eu/edit?usp=sharing" },
-  { name: "Submission Form", status: "Available", ready:true, link:"https://docs.google.com/forms/d/e/1FAIpQLSc9e4dJ2FrYoHmpqRNEX5AdERWadz-citrHvoGk9ly3TQckTA/viewform?usp=header" },
+  { name: "Submission Form", status: "Coming soon", ready:false },
   { name: "Payment Proof Upload", status: "Available", ready:true, link:"https://forms.gle/r1EoQN2KEE2vLynYA" },
 ];
 
@@ -603,12 +603,27 @@ const KEYNOTE_SPEAKERS = [
   {
     name: "Prof. Dr. Ahmed Osumanu Haruna",
     role: "Soil Science — Head of Postgraduate Programme, Faculty of Agriculture, Universiti Islam Sultan Sharif Ali (UNISSA), Brunei Darussalam",
-    photo: "assets/ahmed.jpeg"
+    photo: "assets/ahmed.png"
   },
   {
     name: "Assoc. Prof. Dr. Pham Tien Thong",
     role: "National Chung Hsing University (NCHU), Taiwan",
     photo: "assets/tien.jpg"
+  },
+  {
+    name: "Asosiasi Prof. Ts. Dr. Syamsiah Abdullah",
+    role: "Fakultas Perladangan dan Agroteknologi, Universitas Teknologi MARA Malaysia",
+    photo: "assets/syamsiah.png"
+  },
+  {
+    name: "Prof. Dr. Ir. Supriyadi, M.Sc.",
+    role: "Departemen Teknologi Pangan dan Hasil Pertanian, Fakultas Teknologi Pertanian, Universitas Gadjah Mada",
+    photo: "assets/supriyadi.png"
+  },
+  {
+    name: "Ledy Purwandani, S.T.P., M.Sc.",
+    role: "Jurusan Teknologi Pertanian, Politeknik Negeri Pontianak",
+    photo: "assets/ledy.png"
   },
 ];
 
@@ -653,7 +668,7 @@ function Committee() {
 
         <div className="committee-block">
           <span className="committee-subhead">B · Keynote Speakers</span>
-          <ul className="people-grid">
+          <div className="people-grid">
             {KEYNOTE_SPEAKERS.map(p => (
               <div className="person-card" key={p.name}>
                 <img className="person-photo" src={p.photo} alt={p.name} />
@@ -663,7 +678,7 @@ function Committee() {
                 </div>
               </div>
             ))}
-          </ul>
+          </div>
         </div>
 
         <div className="committee-block">
@@ -693,17 +708,22 @@ function Publication() {
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
           <img
             src="assets/sharifali.jpg"
-            alt="Logo Publisher 1"
             style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
           />
           <img
             src="assets/nchu.jpg"
-            alt="Logo Publisher 2"
+            style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
+          />
+          <img
+            src="assets/uitm.png"
+            style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
+          />
+          <img
+            src="assets/ugm.png"
             style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
           />
           <img
             src="assets/umk.jpeg"
-            alt="Logo Publisher 2"
             style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
           />
         </div><br></br>
@@ -996,8 +1016,7 @@ function TravelInfo() {
             }}
           >
             <img
-              src="https://i.imgur.com/P2F7edK.jpeg"
-              alt="Gambar"
+              src="assets/ponti1.png"
               style={{
                 width: "100%",
                 height: "100%",
@@ -1027,8 +1046,7 @@ function TravelInfo() {
             }}
           >
             <img
-              src="https://i.imgur.com/I1k79ki.jpeg"
-              alt="Gambar"
+              src="assets/ponti2.png"
               style={{
                 width: "100%",
                 height: "100%",
