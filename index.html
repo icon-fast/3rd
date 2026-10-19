@@ -219,6 +219,20 @@
     .welcome-text{font-size:0.96rem;}
     .footer-inner{flex-direction:column; align-items:flex-start; gap:12px;}
   }
+
+  .pub-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-bottom:56px;}
+  @media (max-width:760px){.pub-grid{grid-template-columns:1fr;}}
+  .pub-card{border:1px solid var(--line); border-radius:14px; padding:22px; background:var(--canvas); display:flex; flex-direction:column; gap:10px;}
+  .pub-card .pub-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px;}
+  .pub-card .pub-num{font-family:var(--mono); color:var(--amber); font-size:0.85rem;}
+  .pub-card .pub-name{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:1.02rem; line-height:1.3;}
+  .pub-card .pub-host{font-size:0.82rem; opacity:0.6;}
+  .pub-badges{display:flex; flex-wrap:wrap; gap:6px;}
+  .pub-badge{font-family:var(--mono); font-size:0.7rem; letter-spacing:0.04em; color:var(--teal); background:rgba(4,106,56,0.1); padding:3px 9px; border-radius:100px;}
+  .pub-badge.scopus{color:var(--amber); background:rgba(245,130,31,0.12);}
+  .pub-schedule{font-size:0.88rem; opacity:0.78;}
+  .pub-card a.pub-link{font-size:0.86rem; font-weight:600; color:var(--teal); text-decoration:none; margin-top:auto;}
+  .pub-card a.pub-link:hover{text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -237,6 +251,7 @@ const NAV_LINKS = [
   { href: "#fees", label: "Fees" },
   { href: "#documents", label: "Documents" },
   { href: "#committee", label: "Committee" },
+  { href: "#publication", label: "Publication" },
   { href: "#travel", label: "Travel Info" },
   { href: "#contact", label: "Contact" },
 ];
@@ -448,7 +463,7 @@ function Scope() {
 }
 
 const DATES = [
-  { date: "1–30 October 2026", desc: "Registration, abstract submission, and conference payment." },
+  { date: "1–31 October 2026", desc: "Registration, abstract submission, and conference payment." },
   { date: "4 November 2026", desc: "Notification of abstract review results." },
   { date: "10 November 2026", desc: "Full paper submission deadline." },
   { date: "11 November 2026", desc: "Notification of revision for full paper." },
@@ -603,27 +618,27 @@ const SCIENTIFIC_COMMITTEE = [
 const KEYNOTE_SPEAKERS = [
   {
     name: "Prof. Dr. Ahmed Osumanu Haruna",
-    role: "Soil Science — Head of Postgraduate Programme, Faculty of Agriculture, Universiti Islam Sultan Sharif Ali (UNISSA), Brunei Darussalam",
+    role: "Faculty of Agriculture, Sultan Sharif Ali Islamic University Brunei Darussalam",
     photo: "assets/ahmed.png"
   },
   {
-    name: "Trac Luu Van Thong, B.Sc., M.Sc., Ph.D",
-    role: "National Chung Hsing University (NCHU), Taiwan",
+    name: "Trac Luu Van Thong, Ph.D",
+    role: "Department of Horticulture, National Chung Hsing University (NCHU), Taiwan",
     photo: "assets/tien.jpg"
   },
   {
     name: "Asosiasi Prof. Ts. Dr. Syamsiah Abdullah",
-    role: "Fakultas Perladangan dan Agroteknologi, Universitas Teknologi MARA Malaysia",
+    role: "Faculty of Plantation and Agrotechnologyi, Universitas Teknologi MARA, Malaysia",
     photo: "assets/syamsiah.png"
   },
   {
     name: "Prof. Dr. Ir. Supriyadi, M.Sc.",
-    role: "Departemen Teknologi Pangan dan Hasil Pertanian, Fakultas Teknologi Pertanian, Universitas Gadjah Mada",
+    role: "Department of Food and Agricultural Product Technology, Faculty of Agricultural Technology, Universitas Gadjah Mada",
     photo: "assets/supriyadi.png"
   },
   {
     name: "Ledy Purwandani, S.T.P., M.Sc.",
-    role: "Jurusan Teknologi Pertanian, Politeknik Negeri Pontianak",
+    role: "Department of Agricultural Technology, Politeknik Negeri Pontianak",
     photo: "assets/ledy.png"
   },
 ];
@@ -698,14 +713,94 @@ function Committee() {
   );
 }
 
+const JOURNALS = [
+  {
+    name: "Caraka Tani",
+    host: "Universitas Sebelas Maret (UNS)",
+    badges: ["SINTA 1", "Scopus Q2"],
+    schedule: "Published quarterly: January, April, July, and October.",
+    url: "https://jurnal.uns.ac.id/carakatani/",
+  },
+  {
+    name: "Canrea Journal",
+    host: "Universitas Hasanuddin (Unhas)",
+    badges: ["SINTA 1", "Scopus Q3"],
+    schedule: "Twice a year: June and December.",
+    url: "https://agritech.unhas.ac.id/ojs/index.php/canrea",
+  },
+  {
+    name: "agriTECH",
+    host: "Universitas Gadjah Mada (UGM)",
+    badges: ["SINTA 2", "Web of Science", "CABI", "DOAJ"],
+    schedule: "Four issues per year: February, May, August, and November.",
+    url: "https://journal.ugm.ac.id/agritech",
+  },
+  {
+    name: "Jurnal Agro Bali",
+    host: "Universitas Mahasaraswati / Unipas",
+    badges: ["SINTA 2", "Scopus Q3"],
+    schedule: "Three issues per year: March, July, and November.",
+    url: "https://ejournal.unipas.ac.id/index.php/Agro",
+  },
+  {
+    name: "Jurnal AIP",
+    host: "Politeknik Negeri Lampung (Polinela)",
+    badges: ["SINTA 3", "Copernicus"],
+    schedule: "Three times a year: March, July, and November.",
+    url: "https://jurnal.polinela.ac.id/AIP",
+  },
+  {
+    name: "IJCS (Indonesian Journal of Chemical Studies)",
+    host: "Solusi Riset",
+    badges: ["SINTA 3"],
+    schedule: "Two issues per year (June and December), with 5–15 articles each.",
+    url: "https://journal.solusiriset.com/index.php/ijcs",
+  },
+  {
+    name: "Journal of Agriculture and Animal Science",
+    host: "Universitas Muhammadiyah Luwuk (UMKO)",
+    badges: ["SINTA 4"],
+    schedule: "Twice a year: May and October.",
+    url: "https://jurnal.umko.ac.id/index.php/agrimals",
+  },
+];
+
 function Publication() {
   return (
     <section id="publication">
       <div className="wrap">
         <div className="section-head">
+          <span className="kicker">Publication</span>
+          <h2>Publication opportunities</h2>
+          <p>Selected papers from ICON-FAST 2026 may be published in the following partner journals.</p>
+        </div>
+
+        <div className="pub-grid">
+          {JOURNALS.map((j, i) => (
+            <div className="pub-card" key={j.name}>
+              <div className="pub-top">
+                <div>
+                  <div className="pub-name">{j.name}</div>
+                  <div className="pub-host">{j.host}</div>
+                </div>
+                <span className="pub-num">{String(i + 1).padStart(2, "0")}</span>
+              </div>
+              <div className="pub-badges">
+                {j.badges.map(b => (
+                  <span key={b} className={"pub-badge" + (b.startsWith("Scopus") ? " scopus" : "")}>{b}</span>
+                ))}
+              </div>
+              <div className="pub-schedule">{j.schedule}</div>
+              <a className="pub-link" href={j.url} target="_blank" rel="noopener noreferrer">Visit journal ↗</a>
+            </div>
+          ))}
+        </div>
+
+        <div className="section-head" style={{ marginBottom: 28 }}>
           <span className="kicker">Impact</span>
           <h2>Partnerships and collaborations</h2>
         </div>
+
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
           <img
             src="assets/sharifali.jpg"
@@ -731,10 +826,6 @@ function Publication() {
             src="assets/csu.png"
             style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
           />
-          <img
-            src="assets/umk.jpeg"
-            style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
-          />
         </div><br></br>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
           <img
@@ -745,6 +836,22 @@ function Publication() {
           <img
             src="assets/aip.png"
             alt="Logo Publisher 2"
+            style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
+          />
+          <img
+            src="assets/carakatani.png"
+            style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
+          />
+          <img
+            src="assets/agritech.png"
+            style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
+          />
+          <img
+            src="assets/umk.png"
+            style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
+          />
+          <img
+            src="assets/agrobali.png"
             style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
           />
         </div>
@@ -916,16 +1023,6 @@ function Gallery() {
                 >
                   {image.title}
                 </h3>
-
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: "0.9rem",
-                    opacity: 0.85
-                  }}
-                >
-                  {image.description}
-                </p>
 
               </div>
 
